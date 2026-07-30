@@ -1,0 +1,33 @@
+{
+  "name": "fairpay",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "prebuild": "tsx scripts/sync-cpi-public.ts && tsx scripts/sync-ads-artifacts.ts && tsx scripts/sync-workbox-url.ts && tsx scripts/validate-config.ts",
+    "build": "tsc -p packages/schema/tsconfig.json && tsc -p packages/calc/tsconfig.json && tsc -p etl/tsconfig.json && corepack pnpm@9.15.9 --filter @fairpay/web build",
+    "lint": "eslint . --max-warnings=0",
+    "test": "vitest run",
+    "typecheck": "tsc -p packages/schema/tsconfig.json --noEmit && tsc -p packages/calc/tsconfig.json --noEmit && tsc -p etl/tsconfig.json --noEmit && tsc -p apps/web/tsconfig.json --noEmit",
+    "format": "prettier --write .",
+    "validate:config": "tsx scripts/validate-config.ts",
+    "check:size": "tsx scripts/check-size.ts",
+    "submit:gsc-sitemap": "tsx scripts/submit-gsc-sitemap.ts",
+    "sync:cpi-public": "tsx scripts/sync-cpi-public.ts",
+    "sync:ads-artifacts": "tsx scripts/sync-ads-artifacts.ts",
+    "sync:workbox-url": "tsx scripts/sync-workbox-url.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@next/eslint-plugin-next": "^15.5.0",
+    "@types/node": "^24.2.1",
+    "eslint": "^9.34.0",
+    "googleapis": "^144.0.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.41.0",
+    "vitest": "^3.2.4",
+    "zod": "^4.0.17"
+  }
+}

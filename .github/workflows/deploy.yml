@@ -1,0 +1,118 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - data/**
+      - content/**
+      - apps/web/**
+      - packages/**
+      - config/**
+      - scripts/**
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Cache Next build cache
+        uses: actions/cache@v4
+        with:
+          path: apps/web/.next/cache
+          key: nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+          restore-keys: |
+            nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-
+
+      - name: Install dependencies
+        run: corepack pnpm@9.15.9 install --frozen-lockfile
+
+      - name: Validate config
+        run: corepack pnpm@9.15.9 run validate:config
+
+      - name: Build static export
+        run: corepack pnpm@9.15.9 -w build
+
+      - name: Size budget
+        run: corepack pnpm@9.15.9 run check:size
+
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          staticDistDir: ./apps/web/out
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Ensure .nojekyll in export
+        run: touch apps/web/out/.nojekyll
+
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/web/out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  submit-gsc-sitemap:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' && secrets.GSC_SITE_URL != '' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: corepack pnpm@9.15.9 install --frozen-lockfile
+
+      - name: Submit sitemap to Google Search Console
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+          GSC_SITEMAP_URL: ${{ needs.deploy.outputs.page_url }}/sitemap.xml
+        run: corepack pnpm@9.15.9 run submit:gsc-sitemap

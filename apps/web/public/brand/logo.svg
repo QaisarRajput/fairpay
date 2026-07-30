@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" role="img" aria-labelledby="title desc">
+  <title id="title">FairPay Logo</title>
+  <desc id="desc">Wordmark with bar chart mark</desc>
+  <rect x="8" y="12" width="72" height="72" rx="16" fill="#0E7C66"/>
+  <rect x="22" y="52" width="10" height="18" rx="2" fill="#FFFFFF"/>
+  <rect x="38" y="40" width="10" height="30" rx="2" fill="#FFFFFF"/>
+  <rect x="54" y="30" width="10" height="40" rx="2" fill="#FFFFFF"/>
+  <text x="96" y="62" font-size="40" font-family="Inter, sans-serif" font-weight="700" fill="#1A1A18">FairPay</text>
+</svg>

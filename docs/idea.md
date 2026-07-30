@@ -1,0 +1,5 @@
+IDEA: 
+Did You Actually Get a Raise? — personalized inflation-adjusted wage reality check
+The synthesis: People feel vaguely like their raise "didn't go anywhere" but never see the actual number. CPI calculators exist; personal-narrative ones don't.
+
+What you build: User privately enters salary history (kept in localStorage only — never transmitted, which is itself a trust feature worth marketing). You pull CPI data from FRED (apiKey, CORS: Yes) and compute real purchasing-power change, then generate a shareable result card: "Your $80k in 2021 has the buying power of $X today — you'd need a raise to $Y just to break even." Why it's hard to clone: the narrative-generation layer (turning a CPI series into a personal, specific sentence) is the product, not the CPI lookup. Who pays: this is a virality play first, monetization second — the result card is built to be screenshotted/shared, which drives ad traffic to the tool. Ads on the result page + a "track multiple job offers side-by-side" premium comparison view. 

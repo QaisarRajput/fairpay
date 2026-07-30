@@ -1,0 +1,97 @@
+{
+  "series": [
+    {
+      "seriesId": "CPIAUCSL",
+      "label": "All items (headline)",
+      "category": "all-items",
+      "base": "series-specific index",
+      "startDate": "1947-01-01",
+      "endDate": "2026-06-01",
+      "pointCount": 953,
+      "contentHash": "7a465f8ec9c646d64cb7aecbd4a3042df5f6e36b42f2b10ede7d5ff61e453ab2"
+    },
+    {
+      "seriesId": "CPIUFDSL",
+      "label": "Food",
+      "category": "food",
+      "base": "series-specific index",
+      "startDate": "1947-01-01",
+      "endDate": "2026-06-01",
+      "pointCount": 953,
+      "contentHash": "9017819ae4c807c07509ee888118fee2eabc1054470332a2bb41a8fe280adfd8"
+    },
+    {
+      "seriesId": "CPIHOSSL",
+      "label": "Housing",
+      "category": "housing",
+      "base": "series-specific index",
+      "startDate": "1967-01-01",
+      "endDate": "2026-06-01",
+      "pointCount": 713,
+      "contentHash": "64b34c297c97feca7dbe799810dea98e719db664412d9ffc9cae61b2c6e42bf4"
+    },
+    {
+      "seriesId": "CPITRNSL",
+      "label": "Transportation",
+      "category": "transportation",
+      "base": "series-specific index",
+      "startDate": "1947-01-01",
+      "endDate": "2026-06-01",
+      "pointCount": 953,
+      "contentHash": "401407adb9bef2177a9b89c2e47ebb7524d2847b8cc79da9ced4b1babb783db4"
+    },
+    {
+      "seriesId": "CPIMEDSL",
+      "label": "Medical care",
+      "category": "medical-care",
+      "base": "series-specific index",
+      "startDate": "1947-01-01",
+      "endDate": "2026-06-01",
+      "pointCount": 953,
+      "contentHash": "b17d79ef4bea55108bdd16938a8ee2df5c52c1a4db276c00d0e0780f903df993"
+    },
+    {
+      "seriesId": "CPIAPPSL",
+      "label": "Apparel",
+      "category": "apparel",
+      "base": "series-specific index",
+      "startDate": "1947-01-01",
+      "endDate": "2026-06-01",
+      "pointCount": 953,
+      "contentHash": "f1ff3ac8581613ab7119fb1f212b4daad2a7ddae9f55ee445283ff8f58b5b166"
+    },
+    {
+      "seriesId": "CPIRECSL",
+      "label": "Recreation",
+      "category": "recreation",
+      "base": "series-specific index",
+      "startDate": "1993-01-01",
+      "endDate": "2026-06-01",
+      "pointCount": 401,
+      "contentHash": "03a898a553535e784a41a9b701f575a4e7195bced10c6651301bf146e3d51fc6"
+    },
+    {
+      "seriesId": "CPIEDUSL",
+      "label": "Education & communication",
+      "category": "education-communication",
+      "base": "series-specific index",
+      "startDate": "1993-01-01",
+      "endDate": "2026-06-01",
+      "pointCount": 401,
+      "contentHash": "150077fef21a8d46a671ffb5cf555bcba83432acb5e0782000c73dc2e30df98c"
+    },
+    {
+      "seriesId": "CPIENGSL",
+      "label": "Energy",
+      "category": "energy",
+      "base": "series-specific index",
+      "startDate": "1957-01-01",
+      "endDate": "2026-06-01",
+      "pointCount": 833,
+      "contentHash": "61902c3c68ae17f20595fcfff8043c65247180fff2a36c3979b7df72c0faad06"
+    }
+  ],
+  "coverageStart": "1947-01-01",
+  "coverageEnd": "2026-06-01",
+  "lastSyncedAt": "2026-07-30T19:54:11.004Z"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@fairpay/calc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "files": ["src", "dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src --max-warnings=0",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "self-check": "tsx src/self-check.ts"
+  },
+  "dependencies": {
+    "@fairpay/schema": "workspace:*"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2"
+  }
+}

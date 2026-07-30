@@ -1,0 +1,23 @@
+{
+  "name": "@fairpay/etl",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src --max-warnings=0",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "sync": "tsx src/index.ts",
+    "validate": "tsx src/validate.ts"
+  },
+  "dependencies": {
+    "@fairpay/schema": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,43 @@
+name: ETL CPI Sync
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: corepack pnpm@9.15.9 install --frozen-lockfile
+
+      - name: Sync CPI data
+        run: corepack pnpm@9.15.9 --filter @fairpay/etl run sync
+
+      - name: Validate CPI data
+        run: corepack pnpm@9.15.9 --filter @fairpay/etl run validate
+
+      - name: Auto-commit changed data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore(data): refresh CPI series'
+          file_pattern: data/cpi/** apps/web/public/data/cpi/**
+          commit_user_name: fairpay-data-bot
+          commit_user_email: fairpay-data-bot@users.noreply.github.com

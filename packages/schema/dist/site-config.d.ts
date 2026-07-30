@@ -1,0 +1,51 @@
+import { z } from 'zod';
+export declare const siteConfigSchema: z.ZodObject<{
+    site: z.ZodObject<{
+        name: z.ZodString;
+        tagline: z.ZodString;
+        domain: z.ZodString;
+        url: z.ZodString;
+        locale: z.ZodDefault<z.ZodString>;
+        contactEmail: z.ZodString;
+    }, z.core.$strip>;
+    social: z.ZodObject<{
+        twitter: z.ZodDefault<z.ZodString>;
+        github: z.ZodDefault<z.ZodString>;
+        linkedin: z.ZodDefault<z.ZodString>;
+        instagram: z.ZodDefault<z.ZodString>;
+        tiktok: z.ZodDefault<z.ZodString>;
+    }, z.core.$strip>;
+    seo: z.ZodObject<{
+        googleSiteVerification: z.ZodDefault<z.ZodString>;
+        searchConsolePropertyUrl: z.ZodDefault<z.ZodString>;
+        defaultOgImage: z.ZodDefault<z.ZodString>;
+    }, z.core.$strip>;
+    analytics: z.ZodObject<{
+        provider: z.ZodDefault<z.ZodEnum<{
+            cloudflare: "cloudflare";
+            ga4: "ga4";
+            none: "none";
+        }>>;
+        gaMeasurementId: z.ZodDefault<z.ZodString>;
+        cloudflareToken: z.ZodDefault<z.ZodString>;
+    }, z.core.$strip>;
+    monetization: z.ZodObject<{
+        tipUrl: z.ZodDefault<z.ZodString>;
+        stripePaymentLink: z.ZodDefault<z.ZodString>;
+        newsletterEmbedUrl: z.ZodDefault<z.ZodString>;
+        consultancyEmail: z.ZodDefault<z.ZodString>;
+        calendlyUrl: z.ZodDefault<z.ZodString>;
+    }, z.core.$strip>;
+    adsense: z.ZodObject<{
+        publisherId: z.ZodDefault<z.ZodString>;
+        ready: z.ZodDefault<z.ZodBoolean>;
+    }, z.core.$strip>;
+    giscus: z.ZodObject<{
+        repo: z.ZodDefault<z.ZodString>;
+        repoId: z.ZodDefault<z.ZodString>;
+        category: z.ZodDefault<z.ZodString>;
+        categoryId: z.ZodDefault<z.ZodString>;
+    }, z.core.$strip>;
+}, z.core.$strip>;
+export type SiteConfig = z.infer<typeof siteConfigSchema>;
+//# sourceMappingURL=site-config.d.ts.map
