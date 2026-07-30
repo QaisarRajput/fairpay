@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import type { CpiIndex, CpiSeries } from '@fairpay/schema';
+import type { CpiIndex , CpiSeries } from '@fairpay/schema';
 
 import { CpiTrendChart } from '../components/charts/cpi-trend-chart';
 import { InflationHeatmap } from '../components/charts/inflation-heatmap';
