@@ -94,7 +94,6 @@ jobs:
   submit-gsc-sitemap:
     runs-on: ubuntu-latest
     needs: deploy
-    if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' && secrets.GSC_SITE_URL != '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -111,6 +110,7 @@ jobs:
         run: corepack pnpm@9.15.9 install --frozen-lockfile
 
       - name: Submit sitemap to Google Search Console
+        if: ${{ env.GSC_SERVICE_ACCOUNT_JSON != '' && env.GSC_SITE_URL != '' }}
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
