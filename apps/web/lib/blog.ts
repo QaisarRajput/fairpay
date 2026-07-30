@@ -25,60 +25,89 @@ function escapeHtml(value: string): string {
     .replaceAll("'", '&#39;');
 }
 
+function processInline(text: string): string {
+  // Process inline elements: code, bold, italic, links
+  // Order matters: code first to avoid processing its contents
+  return text
+    .replace(/`([^`]+)`/g, (_, c: string) => `<code>${escapeHtml(c)}</code>`)
+    .replace(/\*\*([^*]+)\*\*/g, (_, c: string) => `<strong>${escapeHtml(c)}</strong>`)
+    .replace(/\*([^*]+)\*/g, (_, c: string) => `<em>${escapeHtml(c)}</em>`)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label: string, href: string) => {
+      const safeHref = href.startsWith('http') || href.startsWith('/') ? href : '#';
+      return `<a href="${escapeHtml(safeHref)}">${escapeHtml(label)}</a>`;
+    });
+}
+
 function markdownToHtml(markdown: string): string {
   const lines = markdown.split(/\r?\n/);
   const output: string[] = [];
   let inList = false;
+  let inOl = false;
+
+  const closeOpenLists = () => {
+    if (inList) { output.push('</ul>'); inList = false; }
+    if (inOl) { output.push('</ol>'); inOl = false; }
+  };
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
 
     if (!line) {
-      if (inList) {
-        output.push('</ul>');
-        inList = false;
-      }
+      closeOpenLists();
+      continue;
+    }
+
+    if (line === '---') {
+      closeOpenLists();
+      output.push('<hr>');
+      continue;
+    }
+
+    if (line.startsWith('### ')) {
+      closeOpenLists();
+      output.push(`<h3>${processInline(line.slice(4))}</h3>`);
       continue;
     }
 
     if (line.startsWith('## ')) {
-      if (inList) {
-        output.push('</ul>');
-        inList = false;
-      }
-      output.push(`<h2>${escapeHtml(line.slice(3))}</h2>`);
+      closeOpenLists();
+      output.push(`<h2>${processInline(line.slice(3))}</h2>`);
       continue;
     }
 
     if (line.startsWith('# ')) {
-      if (inList) {
-        output.push('</ul>');
-        inList = false;
-      }
-      output.push(`<h1>${escapeHtml(line.slice(2))}</h1>`);
+      closeOpenLists();
+      output.push(`<h1>${processInline(line.slice(2))}</h1>`);
+      continue;
+    }
+
+    if (line.startsWith('> ')) {
+      closeOpenLists();
+      output.push(`<blockquote><p>${processInline(line.slice(2))}</p></blockquote>`);
       continue;
     }
 
     if (line.startsWith('- ')) {
-      if (!inList) {
-        output.push('<ul>');
-        inList = true;
-      }
-      output.push(`<li>${escapeHtml(line.slice(2))}</li>`);
+      if (inOl) { output.push('</ol>'); inOl = false; }
+      if (!inList) { output.push('<ul>'); inList = true; }
+      output.push(`<li>${processInline(line.slice(2))}</li>`);
       continue;
     }
 
-    if (inList) {
-      output.push('</ul>');
-      inList = false;
+    const olMatch = /^\d+\.\s+(.+)$/.exec(line);
+    if (olMatch) {
+      if (inList) { output.push('</ul>'); inList = false; }
+      if (!inOl) { output.push('<ol>'); inOl = true; }
+      output.push(`<li>${processInline(olMatch[1] ?? '')}</li>`);
+      continue;
     }
 
-    output.push(`<p>${escapeHtml(line)}</p>`);
+    closeOpenLists();
+
+    output.push(`<p>${processInline(line)}</p>`);
   }
 
-  if (inList) {
-    output.push('</ul>');
-  }
+  closeOpenLists();
 
   return output.join('\n');
 }
