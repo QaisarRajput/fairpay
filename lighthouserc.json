@@ -1,11 +1,12 @@
 {
   "ci": {
     "collect": {
+      "staticDistDir": "./apps/web/out",
       "numberOfRuns": 1,
       "url": [
-        "http://localhost/",
-        "http://localhost/blog",
-        "http://localhost/about"
+        "/",
+        "/blog",
+        "/about"
       ]
     },
     "assert": {
