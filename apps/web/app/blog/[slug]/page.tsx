@@ -43,7 +43,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await getBlogPostBySlug(slug);
 
   if (!post) {
-    notFound();
+    return notFound();
   }
 
   const jsonLd = {
