@@ -17,7 +17,7 @@
     "@fairpay/schema": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^26.1.2",
-    "typescript": "^5.9.2"
+    "@types/node": "^24.2.1",
+    "typescript": "^6.0.3"
   }
 }
