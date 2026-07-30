@@ -5,8 +5,8 @@
       "numberOfRuns": 1,
       "url": [
         "/",
-        "/blog",
-        "/about"
+        "/blog/",
+        "/about/"
       ]
     },
     "assert": {
