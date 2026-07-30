@@ -35,7 +35,7 @@ jobs:
         run: corepack pnpm@9.15.9 --filter @fairpay/etl run validate
 
       - name: Auto-commit changed data
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'chore(data): refresh CPI series'
           file_pattern: data/cpi/** apps/web/public/data/cpi/**
