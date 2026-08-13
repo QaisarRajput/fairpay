@@ -18,7 +18,7 @@
     "sync:workbox-url": "tsx scripts/sync-workbox-url.ts"
   },
   "devDependencies": {
-    "@eslint/js": "^9.34.0",
+    "@eslint/js": "^10.0.1",
     "@next/eslint-plugin-next": "^16.2.12",
     "@types/node": "^24.2.1",
     "eslint": "^10.8.0",
