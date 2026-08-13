@@ -22,7 +22,7 @@
     "@next/eslint-plugin-next": "^16.2.12",
     "@types/node": "^24.2.1",
     "eslint": "^10.8.0",
-    "googleapis": "^173.0.0",
+    "googleapis": "^174.0.1",
     "prettier": "^3.6.2",
     "tsx": "^4.20.4",
     "typescript": "^6.0.3",
