@@ -3815,7 +3815,11 @@
     {
       "date": "2026-06-01",
       "value": 349.609
+    },
+    {
+      "date": "2026-07-01",
+      "value": 349.881
     }
   ],
-  "contentHash": "9017819ae4c807c07509ee888118fee2eabc1054470332a2bb41a8fe280adfd8"
+  "contentHash": "3c23e0c5e098ea41cd7687ef3876ddbaf5c24703121e8f9dbab86c404e97433f"
 }

@@ -6,9 +6,9 @@
       "category": "all-items",
       "base": "series-specific index",
       "startDate": "1947-01-01",
-      "endDate": "2026-06-01",
-      "pointCount": 953,
-      "contentHash": "7a465f8ec9c646d64cb7aecbd4a3042df5f6e36b42f2b10ede7d5ff61e453ab2"
+      "endDate": "2026-07-01",
+      "pointCount": 954,
+      "contentHash": "660429932b6ca4830bbfe2d2c9510c0ad3875a2fc8108ecb3ddce8f54d0e6f09"
     },
     {
       "seriesId": "CPIUFDSL",
@@ -16,9 +16,9 @@
       "category": "food",
       "base": "series-specific index",
       "startDate": "1947-01-01",
-      "endDate": "2026-06-01",
-      "pointCount": 953,
-      "contentHash": "9017819ae4c807c07509ee888118fee2eabc1054470332a2bb41a8fe280adfd8"
+      "endDate": "2026-07-01",
+      "pointCount": 954,
+      "contentHash": "3c23e0c5e098ea41cd7687ef3876ddbaf5c24703121e8f9dbab86c404e97433f"
     },
     {
       "seriesId": "CPIHOSSL",
@@ -26,9 +26,9 @@
       "category": "housing",
       "base": "series-specific index",
       "startDate": "1967-01-01",
-      "endDate": "2026-06-01",
-      "pointCount": 713,
-      "contentHash": "64b34c297c97feca7dbe799810dea98e719db664412d9ffc9cae61b2c6e42bf4"
+      "endDate": "2026-07-01",
+      "pointCount": 714,
+      "contentHash": "ae0851e5d0679f83f312bb41669af55d5423b3bad85c7ae9d07eec711bed10b2"
     },
     {
       "seriesId": "CPITRNSL",
@@ -36,9 +36,9 @@
       "category": "transportation",
       "base": "series-specific index",
       "startDate": "1947-01-01",
-      "endDate": "2026-06-01",
-      "pointCount": 953,
-      "contentHash": "401407adb9bef2177a9b89c2e47ebb7524d2847b8cc79da9ced4b1babb783db4"
+      "endDate": "2026-07-01",
+      "pointCount": 954,
+      "contentHash": "85fdf9f47696a321614db21360ace5ea551e6621498469de40e98c0d804afd15"
     },
     {
       "seriesId": "CPIMEDSL",
@@ -46,9 +46,9 @@
       "category": "medical-care",
       "base": "series-specific index",
       "startDate": "1947-01-01",
-      "endDate": "2026-06-01",
-      "pointCount": 953,
-      "contentHash": "b17d79ef4bea55108bdd16938a8ee2df5c52c1a4db276c00d0e0780f903df993"
+      "endDate": "2026-07-01",
+      "pointCount": 954,
+      "contentHash": "23e8f076792c00b2c3ff36e9730a72a1684280ca0f213dc906b9bd386ce03eb3"
     },
     {
       "seriesId": "CPIAPPSL",
@@ -56,9 +56,9 @@
       "category": "apparel",
       "base": "series-specific index",
       "startDate": "1947-01-01",
-      "endDate": "2026-06-01",
-      "pointCount": 953,
-      "contentHash": "f1ff3ac8581613ab7119fb1f212b4daad2a7ddae9f55ee445283ff8f58b5b166"
+      "endDate": "2026-07-01",
+      "pointCount": 954,
+      "contentHash": "b456cf65a8c8e33cb1c5a55b6f5712c82e3965a6b27016399286be11ae3928df"
     },
     {
       "seriesId": "CPIRECSL",
@@ -66,9 +66,9 @@
       "category": "recreation",
       "base": "series-specific index",
       "startDate": "1993-01-01",
-      "endDate": "2026-06-01",
-      "pointCount": 401,
-      "contentHash": "03a898a553535e784a41a9b701f575a4e7195bced10c6651301bf146e3d51fc6"
+      "endDate": "2026-07-01",
+      "pointCount": 402,
+      "contentHash": "730846daf8147e728ac45380d09621cc9fe0c10f30214ae005c03531a00c7f79"
     },
     {
       "seriesId": "CPIEDUSL",
@@ -76,9 +76,9 @@
       "category": "education-communication",
       "base": "series-specific index",
       "startDate": "1993-01-01",
-      "endDate": "2026-06-01",
-      "pointCount": 401,
-      "contentHash": "150077fef21a8d46a671ffb5cf555bcba83432acb5e0782000c73dc2e30df98c"
+      "endDate": "2026-07-01",
+      "pointCount": 402,
+      "contentHash": "6d8c88a6dacc1f33d2683479df5e6a0767db6aaebfc91da6f2f59ddd7bec2304"
     },
     {
       "seriesId": "CPIENGSL",
@@ -86,12 +86,12 @@
       "category": "energy",
       "base": "series-specific index",
       "startDate": "1957-01-01",
-      "endDate": "2026-06-01",
-      "pointCount": 833,
-      "contentHash": "61902c3c68ae17f20595fcfff8043c65247180fff2a36c3979b7df72c0faad06"
+      "endDate": "2026-07-01",
+      "pointCount": 834,
+      "contentHash": "6f94744fce47480e16589a49b68dc84de510f5d8b2cb74193556cd634e9f22c4"
     }
   ],
   "coverageStart": "1947-01-01",
-  "coverageEnd": "2026-06-01",
-  "lastSyncedAt": "2026-08-10T07:17:19.787Z"
+  "coverageEnd": "2026-07-01",
+  "lastSyncedAt": "2026-08-17T06:39:14.464Z"
 }
