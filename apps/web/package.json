@@ -12,15 +12,15 @@
   "dependencies": {
     "@fairpay/calc": "workspace:*",
     "@fairpay/schema": "workspace:*",
-    "next": "^16.2.12",
+    "next": "^16.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "recharts": "^3.10.1"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "typescript": "^6.0.3"
   }
 }
