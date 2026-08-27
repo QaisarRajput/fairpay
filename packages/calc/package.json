@@ -16,7 +16,7 @@
     "@fairpay/schema": "workspace:*"
   },
   "devDependencies": {
-    "tsx": "^4.20.4",
+    "tsx": "^4.23.12",
     "typescript": "^6.0.3"
   }
 }
