@@ -3339,7 +3339,11 @@
     {
       "date": "2026-07-01",
       "value": 314.553
+    },
+    {
+      "date": "2026-08-01",
+      "value": 321.148
     }
   ],
-  "contentHash": "6f94744fce47480e16589a49b68dc84de510f5d8b2cb74193556cd634e9f22c4"
+  "contentHash": "9ed21047b634daa59114836b61d6449d6a2ee04736d025f3fb4f22fbcb0ad23f"
 }
