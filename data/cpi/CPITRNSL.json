@@ -3823,7 +3823,11 @@
     {
       "date": "2026-08-01",
       "value": 287.804
+    },
+    {
+      "date": "2026-09-01",
+      "value": 294.909
     }
   ],
-  "contentHash": "1fed63a6ea9f09b13501f739f02c72bca31af5dbf6c70f11d7073470edfc2e60"
+  "contentHash": "de7470526e16f4d2ce2ec914bde0a08d35e99127aa1ed418de27757d9554a15c"
 }
